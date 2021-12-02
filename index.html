@@ -8,94 +8,61 @@
 
 	<meta charset="utf-8">
 
-	<link rel="stylesheet" href="#">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+	<link rel="stylesheet" href="/JSbasic/bai1.css">
 	
 </head>
 
 <body>
 
-    <p>Click the button to display an alert box.</p>
-    
-    <button onclick=" notify()">Try it</button>
+    <div class="container">
 
+        <h1><b>Products</b></h1>
 
-    <p id="name"></p>
+        <div class="header">
 
-    <p id="city"></p>
+            <h4>Add a new products</h3>
 
-    <p id="mobile"></p>
+            <div class="row header-content">
+                <div class="col-sm-3">ID: <input class=" header-input" type="text" placeholder="Text something..."></div>
+                <div class="col-sm-3">IName: <input class=" header-input" type="text" placeholder="Text something..."></div>
+                <div class="col-sm-3">IPrice: <input class=" header-input" type="text" placeholder="Text something..."></div>
 
-    <p id="age"></p>
+                <div class="col-sm-3"><button class="header-btn" onclick="addTodolist()">Add</button></div>
+            </div>
 
-    <p id="email"></p>
+        </div>
 
-    <p id="jobs"></p>
+        <div class="content">
 
+            <h4>Products list</h3>
 
-    <div id="all" style="display: none;">
+            <table class="" cellspacing="5" cellpadding="5">
+                <thead>
+                    <tr>
+                        <th>ProductID</th>
+                        <th>Product Name</th>
+                        <th>Product Price</th>
+                        <th>Action</th>                
+                    </tr>
+                </thead>
 
-        <button>Bước tiếp theo</button>
+                <tbody>
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                </tbody>
+            </table>
 
+        </div>
     </div>
-
-    <script>
-    
-        function notify() {
-        
-            alert("Chào mừng bạn đến với ứng dụng JavaScript đầu tiên");
-        
-            var name = null;
-            while (name == null || !isNaN(name)) { 
-                name = prompt("Please enter your name");
-
-                if (name == null || !isNaN(name)) {
-                    alert("Ten can nhap phai la chu cai!!!");
-                }
-            }
-            document.getElementById("name").innerHTML = "name: " + name;
-
-            var city = prompt("Please enter your city");
-            if (city != null) {
-                document.getElementById("city").innerHTML = "city: " + city;                
-            }
-
-           var mobile = null;
-            while (mobile == null || mobile.length != 10 || isNaN(mobile)) {
-                mobile = prompt("Please enter your mobile");
-
-                
-
-                if (mobile == null || mobile.length != 10 || isNaN(mobile)) {
-                    alert("So dien thoai can nhap la so va co du 10 so!!!");
-                }
-            }
-            document.getElementById("mobile").innerHTML = "mobile: " + mobile;  
-
-
-            var year = null;
-            while(year == null || year >= 2021){
-                year = prompt("please enter your year of birth");
-
-                if(year == null || year >= 2021){
-                    alert("Vui long nhap dung nam sinh");
-                }
-            }
-
-            var age = 2021 - parseInt(year);
-            document.getElementById("age").innerHTML = "Age: " + age;
-
-            var email = prompt("Please enter your email");                                                                                                                                                                                                                                                                                                                                                                                                                                                     
-            if (email != null) {
-                document.getElementById("email").innerHTML = "email: " + email;                
-            }
-
-            var jobs = prompt("Please enter your jobs");
-            if (jobs != null) {
-                document.getElementById("jobs").innerHTML = "jobs: " + jobs;                
-            }
-           
-        }
-    
-    </script>
     
 </body>
