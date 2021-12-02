@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+	<title>Javascript tutorial</title>
+
+	<meta charset="utf-8">
+
+	<link rel="stylesheet" href="#">
+	
+</head>
+
+<body>
+
+    <p>Click the button to display an alert box.</p>
+    
+    <button onclick=" notify()">Try it</button>
+
+
+    <p id="name"></p>
+
+    <p id="city"></p>
+
+    <p id="mobile"></p>
+
+    <p id="age"></p>
+
+    <p id="email"></p>
+
+    <p id="jobs"></p>
+
+
+    <div id="all" style="display: none;">
+
+        <button>Bước tiếp theo</button>
+
+    </div>
+
+    <script>
+    
+        function notify() {
+        
+            alert("Chào mừng bạn đến với ứng dụng JavaScript đầu tiên");
+        
+            var name = null;
+            while (name == null || !isNaN(name)) { 
+                name = prompt("Please enter your name");
+
+                if (name == null || !isNaN(name)) {
+                    alert("Ten can nhap phai la chu cai!!!");
+                }
+            }
+            document.getElementById("name").innerHTML = "name: " + name;
+
+            var city = prompt("Please enter your city");
+            if (city != null) {
+                document.getElementById("city").innerHTML = "city: " + city;                
+            }
+
+           var mobile = null;
+            while (mobile == null || mobile.length != 10 || isNaN(mobile)) {
+                mobile = prompt("Please enter your mobile");
+
+                
+
+                if (mobile == null || mobile.length != 10 || isNaN(mobile)) {
+                    alert("So dien thoai can nhap la so va co du 10 so!!!");
+                }
+            }
+            document.getElementById("mobile").innerHTML = "mobile: " + mobile;  
+
+
+            var year = null;
+            while(year == null || year >= 2021){
+                year = prompt("please enter your year of birth");
+
+                if(year == null || year >= 2021){
+                    alert("Vui long nhap dung nam sinh");
+                }
+            }
+
+            var age = 2021 - parseInt(year);
+            document.getElementById("age").innerHTML = "Age: " + age;
+
+            var email = prompt("Please enter your email");                                                                                                                                                                                                                                                                                                                                                                                                                                                     
+            if (email != null) {
+                document.getElementById("email").innerHTML = "email: " + email;                
+            }
+
+            var jobs = prompt("Please enter your jobs");
+            if (jobs != null) {
+                document.getElementById("jobs").innerHTML = "jobs: " + jobs;                
+            }
+           
+        }
+    
+    </script>
+    
+</body>
