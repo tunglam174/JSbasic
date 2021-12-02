@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-	<link rel="stylesheet" href="./css/bai1.css">	
+	<link rel="stylesheet" href="/css/styles.css">	
 </head>
 
 <body>
@@ -18,33 +18,70 @@
         <div class="header">
             <h4>Add a new products</h3>
             <div class="row header-content">
-                <div class="col-sm-3">ID: <input class=" header-input" type="text" placeholder="Text something..."></div>
-                <div class="col-sm-3">IName: <input class=" header-input" type="text" placeholder="Text something..."></div>
-                <div class="col-sm-3">IPrice: <input class=" header-input" type="text" placeholder="Text something..."></div>
-                <div class="col-sm-3"><button class="header-btn" onclick="addTodolist()">Add</button></div>
+                <div class="col-sm-3">
+                	<label for="ID">ID:</label>
+                	<input id="id" type="number" placeholder="Text something...">
+                </div>
+                <div class="col-sm-3">
+                	<label for="Name">Name:</label>
+                	<input id="name" type="text" placeholder="Text something...">
+                </div>
+                <div class="col-sm-3">
+                	<label for="Price">Price:</label>
+                	<input id="price" type="text" placeholder="Text something...">
+                </div>
+                <div class="col-sm-3">
+                	<button class="header-btn" onclick="addTodolist()">Add</button>
+                </div>
             </div>
         </div>
         <div class="content">
             <h4>Products list</h3>
-            <table class="" cellspacing="5" cellpadding="5">
+            <table id="info" class="" cellspacing="5" cellpadding="5">
                 <thead>
                     <tr>
-                        <th>ProductID</th>
+                        <th>Product ID</th>
                         <th>Product Name</th>
                         <th>Product Price</th>
                         <th>Action</th>                
                     </tr>
                 </thead>
-                <tbody>
-                    <tr>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                    </tr>
-                </tbody>
             </table>
         </div>
     </div>
+
+    <script>
+    	var data=[];
+        function addTodolist(){
+            var id = document.getElementById("id").value;
+            var name = document.getElementById("name").value;
+            var price = document.getElementById("price").value;
+            var obj = {
+            	ProductID : id,
+            	ProductName : name,
+            	ProductPrice : price
+            }
+            data.push(obj);
+            showTodolist();
+        }
+
+        function showTodolist(){
+        	table = `<tr>
+                        <th>ProductID</th>
+                        <th>Product Name</th>
+                        <th>Product Price</th>
+                        <th>Action</th>                
+                    </tr>`
+            for (var i = 0; i < data.length; i++) {
+	        	table +=`<tr>
+	                        <th>${data[i].ProductID}</th>
+	                        <th>${data[i].ProductName}</th>
+	                        <th>${data[i].ProductPrice}</th>
+	                        <th>Action</th>                
+	                    </tr>`
+            }
+            document.getElementById("info").innerHTML = table;
+        }
+    </script>
     
 </body>
