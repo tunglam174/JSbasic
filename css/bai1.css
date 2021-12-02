@@ -1,39 +1,40 @@
-
+@font-face {
+    font-family: 'Quicksand', sans-serif;
+    src: url(./css/fonts/Quicksand-VariableFont_wght.ttf);
+}
 body{
 
     font-family: 'Quicksand', sans-serif;
 }
-
 h1{
     text-align: center;
     font-size: 40px;
 }
-
 .header{
     border: solid 1px #ededed;
     margin-bottom: 5%;
 }
-    h4{
-        font-weight: normal;
-        background: #f7f7f7;
-        padding: 1%;
-        margin: 0;
-    }
-    .header-content{
-        display: flex;
-        align-items: center;
-    }
-        .header-input{
-            padding: 3% 5%;
-            margin: 10% 0;
-            border-radius: 5px;
-        }
-        .header-btn{
-            border-color: white;
-            border-radius: 5px;
-            float: right;
-            margin-right: 10%;
-            background-color: #2196f3;
-            color: white;
-            padding: 3% 5%;
-        }
+h4{
+    font-weight: normal;
+    background: #f7f7f7;
+    padding: 1%;
+    margin: 0;
+}
+.header-content{
+    display: flex;
+    align-items: center;
+}
+.header-input{
+    padding: 3% 5%;
+    margin: 10% 0;
+    border-radius: 5px;
+}
+.header-btn{
+    border-color: white;
+    border-radius: 5px;
+    float: right;
+    margin-right: 10%;
+    background-color: #2196f3;
+    color: white;
+    padding: 3% 5%;
+}
