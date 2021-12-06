@@ -24,17 +24,41 @@ h4{
     display: flex;
     align-items: center;
 }
-.header-input{
+.table_all {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+.table_all td, .table_all th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+.table_all tr:nth-child(even){background-color: #f2f2f2;}
+
+.table_all tr:hover {background-color: #ddd;}
+
+.table_all th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #04AA6D;
+  color: white;
+}
+#id, #name, #price{
     padding: 3% 5%;
     margin: 10% 0;
     border-radius: 5px;
 }
 .header-btn{
-    border-color: white;
+    color: #fff;
+    background-color: #007bff;
+    border-color: #007bff;
     border-radius: 5px;
     float: right;
     margin-right: 10%;
-    background-color: #2196f3;
-    color: white;
     padding: 3% 5%;
+}
+.header-btn:hover{
+    background-color: #0167d5;
 }
