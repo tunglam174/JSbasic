@@ -20,7 +20,7 @@
             <div class="row header-content">
                 <div class="col-sm-3">
                 	<label for="id">
-                		ID: <input id="id" type="number" placeholder="Text something...">
+                		ID: <input id="id" onfocusout="checkID(this)" type="text" placeholder="Text something...">
                 	</label>                	
                 </div>
                 <div class="col-sm-3">
@@ -61,8 +61,8 @@
         </div>
     </div>
 
-    <script>
-    	var data=[];
+    <script type="text/javascript" language="javascript">
+    	var data = [];
         function addTodolist(){
             var id = document.getElementById("id").value;
             var name = document.getElementById("name").value;
@@ -72,14 +72,22 @@
             	ProductName : name,
             	ProductPrice : price
             }
-            this.data.push(obj);
+
+            var index = data.findIndex((a) => a.ProductID == obj.ProductID);
+        	if(index == -1){
+        		data.push(obj);
+        	} else{
+        		data.splice(index, 1, obj);
+        		document.getElementById("btn").innerHTML= "Add";
+        	}
             showTodolist();
-            clearAfterAdd()
+        	clearAfterAdd();
+            
         }
 
         function showTodolist(){
         	table = `<tr>
-                        <th>ProductID</th>
+                        <th>Product ID</th>
                         <th>Product Name</th>
                         <th>Product Price</th>
                         <th>Action</th>                
@@ -90,8 +98,8 @@
 	                        <td>${data[i].ProductName}</td>
 	                        <td>${data[i].ProductPrice}</td>
 	                        <td>
-	                        	<button onclick="deleteTodolist(${data[i].ProductID})" class="">Delete</button>
-	                        	<button onclick="editTodolist(${data[i].ProductID})" class="">Edit</button>
+	                        	<button style="background-color: red" onclick="onDeleteTodolist(${data[i].ProductID})" class="">Delete</button>
+	                        	<button style="background-color: orange" onclick="editTodolist(${data[i].ProductID})" class="">Edit</button>
                         	</td>                
 	                    </tr>`
             }
@@ -113,15 +121,29 @@
         	}
         }
 
-        function editTodolist(idinfo){
+        function onDeleteTodolist(idinfo){
+        	deleteTodolist(idinfo);
+        	showTodolist();
+        }
+
+        function editTodolist(index){   	
         	for (var i = 0; i < data.length; i++){
-        		if (data[i].ProductID == idinfo){
+        		if (data[i].ProductID == index){
         			document.getElementById("id").value=data[i].ProductID;
         			document.getElementById("name").value=data[i].ProductName;
         			document.getElementById("price").value=data[i].ProductPrice;
         			document.getElementById("btn").innerHTML= "Update";
         		}
         	}
+        }
+
+        function checkID(input){
+    		var index = data.findIndex((a) => a.ProductID == input.value);
+            if(index !== -1) {
+            	document.getElementById("btn").innerHTML = "Update";
+            } else {
+            	document.getElementById("btn").innerHTML = "Add";
+            }
         }
     </script>
     
